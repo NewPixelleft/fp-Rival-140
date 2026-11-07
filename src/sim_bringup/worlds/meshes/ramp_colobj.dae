@@ -1,0 +1,82 @@
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <created>2026-11-06T15:02:20.779477</created>
+    <modified>2026-11-06T15:02:20.779487</modified>
+    <unit name="metre" meter="1.0" />
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_geometries>
+    <geometry id="ME-Cube.001" name="ME-Cube.001">
+      <mesh>
+        <source id="IID-_0001">
+          <float_array count="18" id="IID-_0001-array">0 -0.5 0 0 0.5 0 1 -0.5 0 1 -0.5 1 1 0.5 0 1 0.5 1</float_array>
+          <technique_common>
+            <accessor count="6" source="#IID-_0001-array" stride="3">
+              <param type="float" name="X" />
+              <param type="float" name="Y" />
+              <param type="float" name="Z" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="IID-_0002">
+          <float_array count="18" id="IID-_0002-array">-0.7734305 -0.546929 -0.3204274 -0.7734579 0.5469354 -0.3203508 0.5773721 -0.5773394 -0.5773394 0.3203508 -0.5469354 0.7734579 0.5773394 0.5773394 -0.5773721 0.3204274 0.546929 0.7734305</float_array>
+          <technique_common>
+            <accessor count="6" source="#IID-_0002-array" stride="3">
+              <param type="float" name="X" />
+              <param type="float" name="Y" />
+              <param type="float" name="Z" />
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="IID-_0003">
+          <float_array count="48" id="IID-_0003-array">0.625 0.75 0.125 0.5 0.125 0.75 0.375 0.5 0.125 0.5 0.625 0.5 0.625 0.5 0.375 0.75 0.375 0.5 0.375 0.5 0.125 0.75 0.125 0.5 0.125 0.75 0.375 0.75 0.625 0.75 0.625 0.75 0.625 0.5 0.125 0.5 0.625 0.5 0.625 0.75 0.375 0.75 0.375 0.5 0.375 0.75 0.125 0.75</float_array>
+          <technique_common>
+            <accessor count="24" source="#IID-_0003-array" stride="2">
+              <param type="float" name="S" />
+              <param type="float" name="T" />
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="IID-_0001-vertices">
+          <input semantic="POSITION" source="#IID-_0001" />
+        </vertices>
+        <triangles count="8" material="slot000">
+          <input offset="0" semantic="VERTEX" source="#IID-_0001-vertices" />
+          <input offset="0" semantic="NORMAL" source="#IID-_0002" />
+          <input offset="1" semantic="TEXCOORD" source="#IID-_0003" set="0" />
+          <p>3 0 1 1 0 2 4 3 1 4 5 5 5 6 2 7 4 8 4 9 0 10 1 11 0 12 2 13 3 14 3 15 5 16 1 17 5 18 3 19 2 20 4 21 2 22 0 23</p>
+        </triangles>
+      </mesh>
+      <extra>
+        <technique profile="BLENDER028">
+          <layer_names>
+            <name name="UVMap" refid="IID-_0003" type="UV" />
+          </layer_names>
+        </technique>
+      </extra>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="SCE-main">
+      <node>
+        <matrix>1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0 0.0 0.0 0.0 0.0 1.0</matrix>
+        <instance_geometry url="#ME-Cube.001" />
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#SCE-main" />
+  </scene>
+  <extra>
+    <technique profile="BLENDER028">
+      <id_prefixes>
+        <prefix name="CAMERA" value="CA-" />
+        <prefix name="EMPTY" value="EM-" />
+        <prefix name="LAMP" value="LA-" />
+        <prefix name="MATERIAL" value="MA-" />
+        <prefix name="MESH" value="ME-" />
+        <prefix name="SCENE" value="SCE-" />
+      </id_prefixes>
+    </technique>
+  </extra>
+</COLLADA>
