@@ -1,10 +1,27 @@
 import rclpy
 from rclpy.node import Node
 from nav_msgs.msg import Odometry
+from geometry_msgs import Twist
 import math
 
 initialX : float = 0
 initialY : float = 0
+initialYaw : float = 0
+
+def localToGlobal(xloc, yloc, xorg, yorg, yaw):
+    xglob = (
+        xorg
+        + xloc * math.cos(yaw)
+        - yloc * math.sin(yaw)
+    )
+
+    yglob = (
+        yorg
+        + xloc * math.sin(yaw)
+        + yloc * math.cos(yaw)
+    )
+
+    return xglob, yglob
 
 # YawCalibration : float = 180.0 / 125.0
 class OdomSubscriber(Node):
@@ -16,17 +33,47 @@ class OdomSubscriber(Node):
         self.corrected_yaw = 0.0
         self.YawCalibration = 180.0 / 125.0
 
+        self.x = None
+        self.y = None
+        self.latest_odom = None
+
+        self.goalX = 0.0
+        self.goalY = 0.0
+
+        self.subscription = self.create_subscription(
+            Twist,
+            '/cmd_vel',
+            10
+        )
+
+
+        self.timer = self.create_timer(
+            0.1, #Every 0.1s
+            self.control_loop
+        )
+
         self.subscription = self.create_subscription(
             Odometry,
             '/odom', # The /odom topic
             self.odom_callback,
             10
         )
+
     ### ENDFUNCTION
 
     def odom_callback(self, msg):
-        x = msg.pose.pose.position.x + initialX
-        y = msg.pose.pose.position.y + initialY
+        self.latest_odom = msg
+        
+        xloc = msg.pose.pose.position.x + initialX
+        yloc = msg.pose.pose.position.y + initialY
+
+        self.x, self.y = localToGlobal(
+            xloc,
+            yloc,
+            initialX,
+            initialY,
+            initialYaw
+        )
 
         q = msg.pose.pose.orientation
 
@@ -51,6 +98,7 @@ class OdomSubscriber(Node):
             f'position: ({x:.2f}, {y:.2f}) |'
             f'Yaw: ({math.degrees(self.corrected_yaw):.2f}) degrees'
         )
+
 
 
 def main(args=None):

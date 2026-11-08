@@ -32,7 +32,7 @@ def previousWaypoint(i: int) -> int:
     return (i - 1) % REGULAR_WAYPOINT_COUNT
 
 def nextWaypoint(i: int) -> int:
-    return (1 + 1) % REGULAR_WAYPOINT_COUNT
+    return (i + 1) % REGULAR_WAYPOINT_COUNT
 
 def isRegularWaypoint(i: int) -> bool:
     return 0 <= i < REGULAR_WAYPOINT_COUNT
