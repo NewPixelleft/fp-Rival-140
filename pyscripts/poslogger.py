@@ -1,15 +1,18 @@
 import rclpy
 from rclpy.node import Node
 
+import navigation.initialPosition as ipp
+
 from nav_msgs.msg import Odometry
 from sensor_msgs.msg import Imu
+from geometry_msgs.msg import PoseStamped
 
 import math
 
 
-INITIAL_X = -11.0
-INITIAL_Y = 0.0
-INITIAL_Z = 0.0
+INITIAL_X = ipp.__initial_x
+INITIAL_Y = ipp.__initial_y
+INITIAL_Z = ipp.__initial_z
 
 
 def normalize_quaternion(q):
@@ -75,7 +78,6 @@ class PositionLogger(Node):
     def __init__(self):
         super().__init__('position_logger')
 
-        # Global position
         self.x = INITIAL_X
         self.y = INITIAL_Y
         self.z = INITIAL_Z
@@ -105,11 +107,38 @@ class PositionLogger(Node):
             '3D IMU-assisted Position Logger Started'
         )
 
+        self.pose_publisher = self.create_publisher(
+            PoseStamped, 
+            '/localization/pose',
+            10
+        )
+
     def imu_callback(self, msg):
 
         self.orientation = normalize_quaternion(
             msg.orientation
         )
+
+    def publish_pose(self, stamp):
+        if self.orientation is None:
+            return
+        pose_msg = PoseStamped()
+
+        pose_msg.header.stamp = stamp
+        pose_msg.header.frame_id = 'map'
+
+        pose_msg.pose.position.x = self.x
+        pose_msg.pose.position.y = self.y
+        pose_msg.pose.position.z = self.z
+
+        w, x, y, z = self.orientation
+
+        pose_msg.pose.orientation.w = w
+        pose_msg.pose.orientation.x = x
+        pose_msg.pose.orientation.y = y
+        pose_msg.pose.orientation.z = z
+
+        self.pose_publisher.publish(pose_msg)
 
     def odom_callback(self, msg):
 
@@ -153,6 +182,7 @@ class PositionLogger(Node):
         self.x += world_vx * dt
         self.y += world_vy * dt
         self.z += world_vz * dt
+        self.publish_pose(msg.header.stamp)
 
         # Extract orientation for diagnostics
         roll, pitch, yaw = quaternion_to_euler(
