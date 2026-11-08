@@ -51,8 +51,6 @@ def astar(start: int, goal: int):
 
     while openset:
         current_f, current = heapq.heappop(openset)
-
-        # Ignore outdated entries in the priority queue
         if current_f > gscore[current] + heuristic(current, goal):
             continue
 

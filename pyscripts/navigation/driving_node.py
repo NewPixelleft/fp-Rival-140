@@ -7,7 +7,7 @@ from std_msgs.msg import Float64MultiArray, Bool
 from geometry_msgs.msg import PoseStamped, Twist
 
 MAX_TURN_SPEED = 0.2
-TURN_TOLERANCE = 0.01
+TURN_TOLERANCE = 0.02
 
 class DrivingNode(Node):
     def __init__(self):

@@ -1,28 +1,28 @@
 {
-    "capture_id": "capture_20261107_163127_292900",
-    "timestamp": "2026-11-07T16:31:27.321929",
-    "image": "mission3_data/images/capture_20261107_163127_292900.png",
+    "capture_id": "capture_20261108_235547_502018",
+    "timestamp": "2026-11-08T23:55:47.541222",
+    "image": "arucoData/images/capture_20261108_235547_502018.png",
     "image_width": 1280,
     "image_height": 720,
     "detected_markers": [
         {
-            "id": 1,
+            "id": 2,
             "corners": [
                 [
-                    407.0,
-                    314.0
+                    114.0,
+                    307.0
                 ],
                 [
-                    453.0,
-                    316.0
+                    171.0,
+                    306.0
                 ],
                 [
-                    453.0,
-                    369.0
+                    172.0,
+                    372.0
                 ],
                 [
-                    407.0,
-                    370.0
+                    115.0,
+                    372.0
                 ]
             ]
         }

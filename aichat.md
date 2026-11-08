@@ -1,0 +1,20 @@
+# Usage of LLM Assistance 
+karena saya bukan sulap bukan sihir, saya pake LLM
+
+- [aaa](https://chatgpt.com/share/6af0a674-4d04-83ec-95fa-cd52fedd92d5)
+- [aab](https://chatgpt.com/share/6af0a6a2-70e8-83ec-a546-07e9dadefee1)
+- [aac](https://chatgpt.com/share/6af0a6ad-b358-83ec-8538-7557bb1815ad)
+- [aad](https://chatgpt.com/share/6af0a6b8-8d60-83ec-97bc-3b83c1126d00)
+- [aae](https://chatgpt.com/share/6af0a6c9-121c-83ec-9cf6-655bff6a6c45)
+- [aaf](https://chatgpt.com/share/6af0a6d9-acd4-83ec-8153-661f905092d9)
+- [aag](https://chatgpt.com/share/6af0a701-38a8-83ec-aea3-d3f35c63a761)
+- [aah](https://chatgpt.com/share/6af0a70e-a93c-83ec-b11c-a81c503f4017)
+- [aai](https://chatgpt.com/share/6af0a71e-07a8-83ec-a18b-c9ff07f12b66)
+- [aaj](https://chatgpt.com/share/6af0a72e-df90-83ec-8481-7f8ef151e873)
+- [aak](https://chatgpt.com/share/6af0a752-46c0-83ec-a592-1ee34455ca74)
+- [aal](https://chatgpt.com/share/6af0a76f-3d5c-83ec-8cb3-314b5954c801)
+- [aam](https://chatgpt.com/share/6af0a788-9944-83ec-9daf-9bcab78bef29)
+- [aan](https://chatgpt.com/share/6af0a793-c3fc-83ec-ae42-fc934b0884c6)
+- [aao](https://chatgpt.com/share/6af0a7bb-a4cc-83ec-a3bc-6a7da64536f2)
+- [aap](https://chatgpt.com/share/6af0a7cc-eadc-83ec-8e6d-d049cb777800)
+- [aaq](https://chatgpt.com/share/6aed9944-a3e8-83ec-89d9-1fec118438d9)

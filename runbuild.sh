@@ -16,4 +16,5 @@ echo "=== Sourcing workspace ==="
 source install/local_setup.bash
 
 echo "=== Launching Gazebo ==="
-ros2 launch sim_bringup dummy.launch.py
+# ros2 launch sim_bringup dummy.launch.py
+ros2 launch sim_bringup controller.launch.py
